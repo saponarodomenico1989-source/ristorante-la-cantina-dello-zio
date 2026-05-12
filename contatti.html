@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contatti - La Cantina dello Zio | Trattoria nel Centro Storico</title>
+    <meta name="description" content="Contatta La Cantina dello Zio per prenotazioni e informazioni. Trattoria familiare nel centro storico con cucina italiana tradizionale.">
+    
+    <meta property="og:title" content="Contatti - La Cantina dello Zio | Trattoria nel Centro Storico">
+    <meta property="og:description" content="Contatta La Cantina dello Zio per prenotazioni e informazioni. Trattoria familiare nel centro storico con cucina italiana tradizionale.">
+    <meta property="og:type" content="restaurant">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Contatti - La Cantina dello Zio | Trattoria nel Centro Storico">
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;700&family=Lato:wght@400;600&display=swap">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "La Cantina dello Zio",
+      "description": "Trattoria familiare nel centro storico con cucina italiana tradizionale",
+      "servesCuisine": "italiana tradizionale",
+      "priceRange": "$$",
+      "url": "contatti.html"
+    }
+    </script>
+
+    <style>
+        :root {
+            /* Palette */
+            --colore-primario: #8B4513;
+            --colore-secondario: #A0522D;
+            --colore-accento: #CD853F;
+            --colore-sfondo: #FDF6E3;
+            --colore-sfondo-secondario: #F5E6D3;
+            --colore-testo: #2F1B14;
+            --colore-testo-chiaro: #6B4423;
+            --colore-bordi: #D4B896;
+
+            /* Tipografia */
+            --font-titoli: 'Crimson Text', serif;
+            --font-testo: 'Lato', sans-serif;
+
+            /* Layout */
+            --border-radius: 6px;
+            --border-radius-lg: 12px;
+            --box-shadow: 0 3px 15px rgba(139,69,19,0.12);
+            --box-shadow-hover: 0 8px 25px rgba(139,69,19,0.20);
+            --transizione: all 0.3s ease;
+
+            /* Spaziatura */
+            --spazio-xs: 0.5rem;
+            --spazio-sm: 1rem;
+            --spazio-md: 2rem;
+            --spazio-lg: 4rem;
+            --spazio-xl: 8rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-testo);
+            line-height: 1.6;
+            color: var(--colore-testo);
+            background-color: var(--colore-sfondo);
+        }
+
+        /* HEADER */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--colore-sfondo);
+            box-shadow: var(--box-shadow);
+            z-index: 1000;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spazio-sm) var(--spazio-md);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: var(--font-titoli);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--colore-primario);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: var(--spazio-md);
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--colore-testo);
+            font-weight: 600;
+            transition: var(--transizione);
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--colore-primario);
+        }
+
+        .btn-prenota {
+            background: var(--colore-primario);
+            color: white;
+            padding: var(--spazio-xs) var(--spazio-md);
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            transition: var(--transizione);
+        }
+
+        .btn-prenota:hover {
+            background: var(--colore-secondario);
+            transform: translateY(-2px);
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--colore-primario);
+            margin: 3px 0;
+            transition: var(--transizione);
+        }
+
+        /* MAIN CONTENT */
+        .main {
+            margin-top: 80px;
+            min-height: calc(100vh - 80px);
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(139,69,19,0.7), rgba(139,69,19,0.7)), 
+                        url('https://lh3.googleusercontent.com/gps-cs-s/APNQkAFaLgXH3Hdm8596ZtpcEIV6iy1T3MyGYMwZyZLMlwSh2Cu2V6QdoTETyjuoKyxOKqIZhECnKu2tKhAc5OQiCx9KQmIJjDq_Dq83LHGJOOWMUTSYHjAUSCzQQ4OaeyMd0OsuWac01Q=w491-h240-k-no');
+            background-size: cover;
+            background-position: center;
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-family: var(--font-titoli);
+            font-size: 3rem;
+            margin-bottom: var(--spazio-sm);
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.3s forwards;
+        }
+
+        .contatti-section {
+            padding: var(--spazio-xl) var(--spazio-md);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contatti-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spazio-lg);
+            margin-bottom: var(--spazio-lg);
+        }
+
+        .contatti-info {
+            background: var(--colore-sfondo-secondario);
+            padding: var(--spazio-lg);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--box-shadow);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transizione);
+        }
+
+        .contatti-info.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .contatti-info h2 {
+            font-family: var(--font-titoli);
+            font-size: 2.2rem;
+            color: var(--colore-primario);
+            margin-bottom: var(--spazio-md);
+        }
+
+        .info-item {
+            margin-bottom: var(--spazio-md);
+            padding: var(--spazio-sm);
+            background: var(--colore-sfondo);
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--colore-accento);
+        }
+
+        .info-item h3 {
+            font-family: var(--font-titoli);
+            color: var(--colore-primario);
+            margin-bottom: var(--spazio-xs);
+            font-size: 1.3rem;
+        }
+
+        .info-item p {
+            color: var(--colore-testo-chiaro);
+            font-size: 1.1rem;
+        }
+
+        .mappa-container {
+            background: var(--colore-sfondo-secondario);
+            padding: var(--spazio-lg);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--box-shadow);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transizione);
+        }
+
+        .mappa-container.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .mappa-container h2 {
+            font-family: var(--font-titoli);
+            font-size: 2.2rem;
+            color: var(--colore-primario);
+            margin-bottom: var(--spazio-md);
+            text-align: center;
+        }
+
+        .mappa-placeholder {
+            width: 100%;
+            height: 400px;
+            background: var(--colore-sfondo);
+            border: 2px dashed var(--colore-bordi);
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--colore-testo-chiaro);
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+        .form-section {
+            background: var(--colore-sfondo-secondario);
+            padding: var(--spazio-lg);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--box-shadow);
+            margin-top: var(--spazio-lg);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transizione);
+        }
+
+        .form-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .form-section h2 {
+            font-family: var(--font-titoli);
+            font-size: 2.2rem;
+            color: var(--colore-primario);
+            margin-bottom: var(--spazio-md);
+            text-align: center;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: var(--spazio-md);
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: var(--spazio-xs);
+            font-weight: 600;
+            color: var(--colore-primario);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: var(--spazio-sm);
+            border: 2px solid var(--colore-bordi);
+            border-radius: var(--border-radius);
+            font-family: var(--font-testo);
+            font-size: 1rem;
+            transition: var(--transizione);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--colore-primario);
+            box-shadow: 0 0 0 3px rgba(139,69,19,0.1);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .btn-invia {
+            background: var(--colore-primario);
+            color: white;
+            padding: var(--spazio-sm) var(--spazio-lg);
+            border: none;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transizione);
+            width: 100%;
+        }
+
+        .btn-invia:hover {
+            background: var(--colore-secondario);
+            transform: translateY(-2px);
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        /* FOOTER */
+        .footer {
+            background: var(--colore-primario);
+            color: white;
+            text-align: center;
+            padding: var(--spazio-lg) var(--spazio-md);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer h3 {
+            font-family: var(--font-titoli);
+            font-size: 1.8rem;
+            margin-bottom: var(--spazio-md);
+        }
+
+        .footer-info {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: var(--spazio-md);
+            margin-bottom: var(--spazio-md);
+        }
+
+        .footer-info div {
+            min-width: 200px;
+        }
+
+        .footer-info h4 {
+            font-family: var(--font-titoli);
+            margin-bottom: var(--spazio-xs);
+            color: var(--colore-accento);
+        }
+
+        /* ANIMAZIONI */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: var(--colore-sfondo);
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                padding-top: var(--spazio-lg);
+                transition: var(--transizione);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(45deg) translate(-5px, -6px);
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .contatti-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spazio-md);
+            }
+
+            .contatti-info,
+            .mappa-container,
+            .form-section {
+                padding: var(--spazio-md);
+            }
+
+            .footer-info {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .nav {
+                padding: var(--spazio-sm);
+            }
+
+            .btn-prenota {
+                padding: var(--spazio-xs) var(--spazio-sm);
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .contatti-section {
+                padding: var(--spazio-md) var(--spazio-sm);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html" class="logo">La Cantina dello Zio</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="prenota.html">Prenota</a></li>
+                <li><a href="contatti.html" class="active">Contatti</a></li>
+            </ul>
+            <a href="prenota.html" class="btn-prenota">Prenota ora</a>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1>Contattaci</h1>
+                <p>Dove ogni pasto è una festa di famiglia</p>
+            </div>
+        </section>
+
+        <section class="contatti-section">
+            <div class="contatti-grid">
+                <div class="contatti-info">
+                    <h2>Informazioni di Contatto</h2>
+                    
+                    <div class="info-item">
+                        <h3>📍 Indirizzo</h3>
+                        <p>[INSERIRE INDIRIZZO]<br>Centro Storico</p>
+                    </div>
+
+                    <div class="info-item">
+                        <h3>📞 Telefono</h3>
+                        <p>[INSERIRE TELEFONO]</p>
+                    </div>
+
+                    <div class="info-item">
+                        <h3>✉️ Email</h3>
+                        <p>[INSERIRE EMAIL]</p>
+                    </div>
+
+                    <div class="info-item">
+                        <h3>🕐 Orari di Apertura</h3>
+                        <p>[INSERIRE ORARI DI APERTURA]</p>
+                    </div>
+
+                    <div class="info-item">
+                        <h3>🍷 Atmosfera</h3>
+                        <p>Trattoria familiare nel cuore del centro storico, perfetta per cene in famiglia e momenti conviviali</p>
+                    </div>
+                </div>
+
+                <div class="mappa-container">
+                    <h2>Come Raggiungerci</h2>
+                    <div class="mappa-placeholder">
+                        <div>
+                            <p><strong>La Cantina dello Zio</strong></p>
+                            <p>Centro Storico</p>
+                            <p>Facilmente raggiungibile nel cuore della città</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h2>Scrivici</h2>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="nome">Nome *</label>
+                        <input type="text" id="nome" name="nome" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="telefono">Telefono</label>
+                        <input type="tel" id="telefono" name="telefono">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="oggetto">Oggetto</label>
+                        <input type="text" id="oggetto" name="oggetto">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="messaggio">Messaggio *</label>
+                        <textarea id="messaggio" name="messaggio" placeholder="Raccontaci come possiamo aiutarti..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn-invia">Invia Messaggio</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <h3>La Cantina dello Zio</h3>
+            <div class="footer-info">
+                <div>
+                    <h4>Contatti</h4>
+                    <p>📍 [INSERIRE INDIRIZZO]</p>
+                    <p>📞 [INSERIRE TELEFONO]</p>
+                    <p>✉️ [INSERIRE EMAIL]</p>
+                </div>
+                <div>
+                    <h4>Orari</h4>
+                    <p>[INSERIRE ORARI]</p>
+                </div>
+                <div>
+                    <h4>Seguici</h4>
+                    <p>Trattoria familiare nel centro storico</p>
+                    <p>Dove ogni pasto è una festa di famiglia</p>
+                </div>
+            </div>
+            <p>&copy; 2024 La Cantina dello Zio. Tutti i diritti riservati.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Menu hamburger
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Chiudi menu quando si clicca su un link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer per animazioni
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.contatti-info, .mappa-container, .form-section').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Form submission
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Simulazione invio
+            const button = this.querySelector('.btn-invia');
+            const originalText = button.textContent;
+            
+            button.textContent = 'Invio in corso...';
+            button.disabled = true;
+            
+            setTimeout(() => {
+                button.textContent = 'Messaggio Inviato!';
+                button.style.background = 'var(--colore-accento)';
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.disabled = false;
+                    button.style.background = 'var(--colore-primario)';
+                    this.reset();
+                }, 2000);
+            }, 1500);
+        });
+    </script>
+</body>
+</html>
