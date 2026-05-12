@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prenota un Tavolo - La Cantina dello Zio | Ristorante Italiano Tradizionale</title>
+    <meta name="description" content="Prenota il tuo tavolo alla Cantina dello Zio. Trattoria familiare con cucina italiana tradizionale nel centro storico. Atmosfera accogliente e autentica.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Prenota un Tavolo - La Cantina dello Zio">
+    <meta property="og:description" content="Prenota il tuo tavolo alla Cantina dello Zio. Trattoria familiare con cucina italiana tradizionale nel centro storico.">
+    <meta property="og:type" content="restaurant">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Prenota un Tavolo - La Cantina dello Zio">
+    <meta name="twitter:description" content="Prenota il tuo tavolo alla Cantina dello Zio. Trattoria familiare con cucina italiana tradizionale nel centro storico.">
+    
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "La Cantina dello Zio",
+      "description": "Trattoria familiare con cucina italiana tradizionale nel centro storico",
+      "servesCuisine": "italiana tradizionale",
+      "priceRange": "$$",
+      "acceptsReservations": "true"
+    }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;700&family=Lato:wght@400;600&display=swap">
+    
+    <style>
+        :root {
+            /* Palette */
+            --colore-primario: #8B4513;
+            --colore-secondario: #A0522D;
+            --colore-accento: #CD853F;
+            --colore-sfondo: #FDF6E3;
+            --colore-sfondo-secondario: #F5E6D3;
+            --colore-testo: #2F1B14;
+            --colore-testo-chiaro: #6B4423;
+            --colore-bordi: #D4B896;
+
+            /* Tipografia */
+            --font-titoli: 'Crimson Text', serif;
+            --font-testo: 'Lato', sans-serif;
+
+            /* Layout */
+            --border-radius: 6px;
+            --border-radius-lg: 12px;
+            --box-shadow: 0 3px 15px rgba(139,69,19,0.12);
+            --box-shadow-hover: 0 8px 25px rgba(139,69,19,0.20);
+            --transizione: all 0.3s ease;
+
+            /* Spaziatura */
+            --spazio-xs: 0.5rem;
+            --spazio-sm: 1rem;
+            --spazio-md: 2rem;
+            --spazio-lg: 4rem;
+            --spazio-xl: 8rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-testo);
+            background-color: var(--colore-sfondo);
+            color: var(--colore-testo);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            background-color: var(--colore-sfondo);
+            padding: var(--spazio-sm) 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: var(--box-shadow);
+            border-bottom: 2px solid var(--colore-bordi);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spazio-sm);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-titoli);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--colore-primario);
+            text-decoration: none;
+        }
+
+        .nav {
+            display: flex;
+            list-style: none;
+            gap: var(--spazio-md);
+            align-items: center;
+        }
+
+        .nav a {
+            color: var(--colore-testo);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transizione);
+        }
+
+        .nav a:hover {
+            color: var(--colore-primario);
+        }
+
+        .btn-prenota {
+            background-color: var(--colore-primario);
+            color: white;
+            padding: var(--spazio-xs) var(--spazio-sm);
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transizione);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-prenota:hover {
+            background-color: var(--colore-secondario);
+            transform: translateY(-2px);
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--colore-primario);
+            cursor: pointer;
+        }
+
+        /* Main Content */
+        .main {
+            margin-top: 100px;
+            padding: var(--spazio-lg) 0;
+        }
+
+        .hero-section {
+            text-align: center;
+            padding: var(--spazio-xl) 0;
+            background: linear-gradient(135deg, var(--colore-sfondo) 0%, var(--colore-sfondo-secondario) 100%);
+        }
+
+        .hero-section h1 {
+            font-family: var(--font-titoli);
+            font-size: 3rem;
+            color: var(--colore-primario);
+            margin-bottom: var(--spazio-sm);
+        }
+
+        .hero-section p {
+            font-size: 1.2rem;
+            color: var(--colore-testo-chiaro);
+            max-width: 600px;
+            margin: 0 auto var(--spazio-md);
+        }
+
+        /* Form Prenotazione */
+        .form-prenotazione {
+            padding: var(--spazio-xl) 0;
+        }
+
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: var(--spazio-lg);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--box-shadow);
+        }
+
+        .form-container h2 {
+            font-family: var(--font-titoli);
+            font-size: 2.5rem;
+            color: var(--colore-primario);
+            text-align: center;
+            margin-bottom: var(--spazio-md);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spazio-sm);
+            margin-bottom: var(--spazio-md);
+        }
+
+        .form-group {
+            margin-bottom: var(--spazio-sm);
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: var(--spazio-xs);
+            font-weight: 600;
+            color: var(--colore-testo);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: var(--spazio-sm);
+            border: 2px solid var(--colore-bordi);
+            border-radius: var(--border-radius);
+            font-family: var(--font-testo);
+            font-size: 1rem;
+            transition: var(--transizione);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--colore-primario);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .btn-submit {
+            width: 100%;
+            background-color: var(--colore-primario);
+            color: white;
+            padding: var(--spazio-sm) var(--spazio-md);
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transizione);
+            margin-top: var(--spazio-sm);
+        }
+
+        .btn-submit:hover {
+            background-color: var(--colore-secondario);
+            transform: translateY(-2px);
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        /* Info Prenotazione */
+        .info-prenotazione {
+            padding: var(--spazio-xl) 0;
+            background-color: var(--colore-sfondo-secondario);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spazio-lg);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .info-card {
+            background-color: white;
+            padding: var(--spazio-lg);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            transition: var(--transizione);
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        .info-card h3 {
+            font-family: var(--font-titoli);
+            font-size: 1.8rem;
+            color: var(--colore-primario);
+            margin-bottom: var(--spazio-sm);
+        }
+
+        .info-card p {
+            color: var(--colore-testo-chiaro);
+            line-height: 1.8;
+        }
+
+        .info-icon {
+            font-size: 3rem;
+            color: var(--colore-accento);
+            margin-bottom: var(--spazio-sm);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--colore-primario);
+            color: white;
+            padding: var(--spazio-lg) 0;
+            text-align: center;
+        }
+
+        .footer h3 {
+            font-family: var(--font-titoli);
+            font-size: 1.5rem;
+            margin-bottom: var(--spazio-sm);
+        }
+
+        .footer p {
+            margin-bottom: var(--spazio-xs);
+        }
+
+        /* Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav {
+                position: fixed;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--colore-sfondo);
+                flex-direction: column;
+                padding: var(--spazio-sm);
+                box-shadow: var(--box-shadow);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: var(--transizione);
+            }
+
+            .nav.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .hero-section h1 {
+                font-size: 2.2rem;
+            }
+
+            .form-container {
+                margin: 0 var(--spazio-sm);
+                padding: var(--spazio-md);
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .container {
+                padding: 0 var(--spazio-md);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">La Cantina dello Zio</a>
+                
+                <nav>
+                    <ul class="nav">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="prenota.html">Prenota</a></li>
+                        <li><a href="contatti.html">Contatti</a></li>
+                        <li><a href="prenota.html" class="btn-prenota">Prenota ora</a></li>
+                    </ul>
+                </nav>
+
+                <button class="menu-toggle" aria-label="Menu">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container">
+                <h1 class="fade-in">Prenota il Tuo Tavolo</h1>
+                <p class="fade-in">Dove ogni pasto è una festa di famiglia</p>
+            </div>
+        </section>
+
+        <!-- Form Prenotazione -->
+        <section class="form-prenotazione">
+            <div class="container">
+                <div class="form-container fade-in">
+                    <h2>Richiedi una Prenotazione</h2>
+                    <form id="prenotazione-form">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="nome">Nome *</label>
+                                <input type="text" id="nome" name="nome" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="cognome">Cognome *</label>
+                                <input type="text" id="cognome" name="cognome" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="telefono">Telefono *</label>
+                                <input type="tel" id="telefono" name="telefono" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="data">Data *</label>
+                                <input type="date" id="data" name="data" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="orario">Orario *</label>
+                                <select id="orario" name="orario" required>
+                                    <option value="">Seleziona orario</option>
+                                    <option value="19:00">19:00</option>
+                                    <option value="19:30">19:30</option>
+                                    <option value="20:00">20:00</option>
+                                    <option value="20:30">20:30</option>
+                                    <option value="21:00">21:00</option>
+                                    <option value="21:30">21:30</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="persone">Numero di persone *</label>
+                                <select id="persone" name="persone" required>
+                                    <option value="">Seleziona</option>
+                                    <option value="1">1 persona</option>
+                                    <option value="2">2 persone</option>
+                                    <option value="3">3 persone</option>
+                                    <option value="4">4 persone</option>
+                                    <option value="5">5 persone</option>
+                                    <option value="6">6 persone</option>
+                                    <option value="7">7 persone</option>
+                                    <option value="8">8 persone</option>
+                                    <option value="più di 8">Più di 8 persone</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="occasione">Occasione speciale</label>
+                                <select id="occasione" name="occasione">
+                                    <option value="">Nessuna occasione speciale</option>
+                                    <option value="compleanno">Compleanno</option>
+                                    <option value="anniversario">Anniversario</option>
+                                    <option value="cena romantica">Cena romantica</option>
+                                    <option value="cena di lavoro">Cena di lavoro</option>
+                                    <option value="festa di famiglia">Festa di famiglia</option>
+                                    <option value="altro">Altro</option>
+                                </select>
+                            </div>
+                            <div class="form-group full-width">
+                                <label for="note">Note aggiuntive</label>
+                                <textarea id="note" name="note" placeholder="Allergie alimentari, richieste particolari o altre informazioni..."></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-submit">Invia Richiesta di Prenotazione</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Info Prenotazione -->
+        <section class="info-prenotazione">
+            <div class="container">
+                <div class="info-grid">
+                    <div class="info-card fade-in">
+                        <div class="info-icon">📞</div>
+                        <h3>Conferma Telefonica</h3>
+                        <p>Ti contatteremo entro 24 ore per confermare la disponibilità del tavolo e finalizzare la prenotazione. La prenotazione sarà valida solo dopo la nostra conferma.</p>
+                    </div>
+                    <div class="info-card fade-in">
+                        <div class="info-icon">⏰</div>
+                        <h3>Orari di Servizio</h3>
+                        <p>Il servizio cena inizia alle 19:00. Per garantire la migliore esperienza culinaria, vi chiediamo di rispettare l'orario di prenotazione. In caso di ritardo, vi preghiamo di avvisarci.</p>
+                    </div>
+                    <div class="info-card fade-in">
+                        <div class="info-icon">👨‍👩‍👧‍👦</div>
+                        <h3>Atmosfera Familiare</h3>
+                        <p>Nella nostra trattoria accogliamo famiglie e gruppi con il calore tipico della tradizione italiana. Comunicate eventuali esigenze particolari: faremo del nostro meglio per accontentarvi.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <h3>La Cantina dello Zio</h3>
+            <p>Trattoria familiare nel centro storico</p>
+            <p>Telefono: [INSERIRE TELEFONO]</p>
+            <p>Email: [INSERIRE EMAIL]</p>
+            <p>Indirizzo: [INSERIRE INDIRIZZO]</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('.nav');
+
+        menuToggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!nav.contains(e.target) && !menuToggle.contains(e.target)) {
+                nav.classList.remove('active');
+            }
+        });
+
+        // Fade in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Set minimum date to today
+        const dateInput = document.getElementById('data');
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.min = today;
+
+        // Form submission
+        document.getElementById('prenotazione-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData);
+            
+            // Here you would typically send the data to your server
+            alert('Grazie per la tua richiesta di prenotazione! Ti contatteremo entro 24 ore per confermare la disponibilità.');
+            
+            // Reset form
+            e.target.reset();
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
