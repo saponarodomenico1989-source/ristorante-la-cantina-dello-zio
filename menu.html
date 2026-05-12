@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - La Cantina dello Zio | Piatti Italiani Tradizionali</title>
+    <meta name="description" content="Scopri il menu de La Cantina dello Zio: piatti italiani tradizionali preparati con passione e ingredienti genuini in un'atmosfera familiare accogliente.">
+    <meta property="og:title" content="Menu - La Cantina dello Zio | Piatti Italiani Tradizionali">
+    <meta property="og:description" content="Scopri il menu de La Cantina dello Zio: piatti italiani tradizionali preparati con passione e ingredienti genuini.">
+    <meta property="og:type" content="restaurant">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Menu - La Cantina dello Zio | Piatti Italiani Tradizionali">
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;700&family=Lato:wght@400;600&display=swap">
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Restaurant",
+        "name": "La Cantina dello Zio",
+        "image": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAFaLgXH3Hdm8596ZtpcEIV6iy1T3MyGYMwZyZLMlwSh2Cu2V6QdoTETyjuoKyxOKqIZhECnKu2tKhAc5OQiCx9KQmIJjDq_Dq83LHGJOOWMUTSYHjAUSCzQQ4OaeyMd0OsuWac01Q=w491-h240-k-no",
+        "servesCuisine": "Italiana",
+        "priceRange": "€€",
+        "description": "Trattoria familiare specializzata in cucina italiana tradizionale"
+    }
+    </script>
+
+    <style>
+        :root {
+            /* Palette */
+            --colore-primario: #8B4513;
+            --colore-secondario: #A0522D;
+            --colore-accento: #CD853F;
+            --colore-sfondo: #FDF6E3;
+            --colore-sfondo-secondario: #F5E6D3;
+            --colore-testo: #2F1B14;
+            --colore-testo-chiaro: #6B4423;
+            --colore-bordi: #D4B896;
+
+            /* Tipografia */
+            --font-titoli: 'Crimson Text', serif;
+            --font-testo: 'Lato', sans-serif;
+
+            /* Layout */
+            --border-radius: 6px;
+            --border-radius-lg: 12px;
+            --box-shadow: 0 3px 15px rgba(139,69,19,0.12);
+            --box-shadow-hover: 0 8px 25px rgba(139,69,19,0.20);
+            --transizione: all 0.3s ease;
+
+            /* Spaziatura */
+            --spazio-xs: 0.5rem;
+            --spazio-sm: 1rem;
+            --spazio-md: 2rem;
+            --spazio-lg: 4rem;
+            --spazio-xl: 8rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-testo);
+            color: var(--colore-testo);
+            background-color: var(--colore-sfondo);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(253, 246, 227, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: var(--spazio-sm) 0;
+            border-bottom: 1px solid var(--colore-bordi);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 var(--spazio-sm);
+        }
+
+        .logo {
+            font-family: var(--font-titoli);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--colore-primario);
+            text-decoration: none;
+        }
+
+        .nav {
+            display: flex;
+            gap: var(--spazio-md);
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--colore-testo);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transizione);
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--colore-primario);
+        }
+
+        .btn-prenota {
+            background: var(--colore-primario);
+            color: white;
+            padding: var(--spazio-xs) var(--spazio-sm);
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transizione);
+            margin-left: var(--spazio-sm);
+        }
+
+        .btn-prenota:hover {
+            background: var(--colore-secondario);
+            transform: translateY(-2px);
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--colore-primario);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 60vh;
+            background: linear-gradient(rgba(139, 69, 19, 0.7), rgba(139, 69, 19, 0.5)), 
+                        url('https://lh3.googleusercontent.com/gps-cs-s/APNQkAFaLgXH3Hdm8596ZtpcEIV6iy1T3MyGYMwZyZLMlwSh2Cu2V6QdoTETyjuoKyxOKqIZhECnKu2tKhAc5OQiCx9KQmIJjDq_Dq83LHGJOOWMUTSYHjAUSCzQQ4OaeyMd0OsuWac01Q=w491-h240-k-no');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 80px;
+        }
+
+        .hero-content h1 {
+            font-family: var(--font-titoli);
+            font-size: 3rem;
+            margin-bottom: var(--spazio-sm);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: var(--spazio-md);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        /* Menu Section */
+        .menu-section {
+            padding: var(--spazio-xl) 0;
+            background: var(--colore-sfondo);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spazio-sm);
+        }
+
+        .section-title {
+            font-family: var(--font-titoli);
+            font-size: 2.5rem;
+            text-align: center;
+            color: var(--colore-primario);
+            margin-bottom: var(--spazio-lg);
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spazio-lg);
+        }
+
+        .menu-category {
+            background: white;
+            border-radius: var(--border-radius-lg);
+            padding: var(--spazio-md);
+            box-shadow: var(--box-shadow);
+            transition: var(--transizione);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .menu-category.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .menu-category:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        .category-title {
+            font-family: var(--font-titoli);
+            font-size: 1.8rem;
+            color: var(--colore-primario);
+            margin-bottom: var(--spazio-md);
+            text-align: center;
+            border-bottom: 2px solid var(--colore-accento);
+            padding-bottom: var(--spazio-xs);
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: var(--spazio-md);
+            padding-bottom: var(--spazio-sm);
+            border-bottom: 1px solid var(--colore-bordi);
+        }
+
+        .menu-item:last-child {
+            margin-bottom: 0;
+            border-bottom: none;
+        }
+
+        .item-info {
+            flex: 1;
+        }
+
+        .item-name {
+            font-weight: 600;
+            color: var(--colore-primario);
+            margin-bottom: var(--spazio-xs);
+            font-size: 1.1rem;
+        }
+
+        .item-description {
+            color: var(--colore-testo-chiaro);
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        .item-price {
+            font-weight: 700;
+            color: var(--colore-secondario);
+            font-size: 1.1rem;
+            margin-left: var(--spazio-sm);
+            white-space: nowrap;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--colore-primario);
+            color: white;
+            padding: var(--spazio-lg) 0 var(--spazio-md);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spazio-sm);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spazio-md);
+        }
+
+        .footer-section h3 {
+            font-family: var(--font-titoli);
+            margin-bottom: var(--spazio-sm);
+            color: var(--colore-accento);
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            margin-bottom: var(--spazio-xs);
+            display: block;
+        }
+
+        .footer-section a:hover {
+            color: var(--colore-accento);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: var(--spazio-md);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            margin-top: var(--spazio-md);
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav {
+                position: fixed;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: var(--spazio-md);
+                box-shadow: var(--box-shadow);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: var(--transizione);
+            }
+
+            .nav.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .menu-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spazio-md);
+            }
+
+            .menu-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .item-price {
+                margin-left: 0;
+                margin-top: var(--spazio-xs);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 1.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .category-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <a href="index.html" class="logo">La Cantina dello Zio</a>
+            <nav class="nav" id="nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="menu.html" class="nav-link active">Menu</a>
+                <a href="prenota.html" class="nav-link">Prenota</a>
+                <a href="contatti.html" class="nav-link">Contatti</a>
+                <a href="prenota.html" class="btn-prenota">Prenota ora</a>
+            </nav>
+            <button class="menu-toggle" id="menu-toggle">☰</button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>La Nostra Carta</h1>
+            <p>Dove ogni pasto è una festa di famiglia</p>
+        </div>
+    </section>
+
+    <section class="menu-section" id="piatti-italiani-tradizionali">
+        <div class="container">
+            <h2 class="section-title">Piatti Italiani Tradizionali</h2>
+            <div class="menu-grid">
+                <div class="menu-category">
+                    <h3 class="category-title">Antipasti</h3>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">Antipasto della Casa</div>
+                            <div class="item-description">Selezione di salumi, formaggi e verdure sott'olio della tradizione</div>
+                        </div>
+                        <div class="item-price">€12,00</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">Bruschette Miste</div>
+                            <div class="item-description">Pomodoro, aglio e basilico su pane casereccio tostato</div>
+                        </div>
+                        <div class="item-price">€8,00</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">Antipasto di Mare</div>
+                            <div class="item-description">Crudo di ricciola, polpo e gamberetti con olio e limone</div>
+                        </div>
+                        <div class="item-price">€15,00</div>
+                    </div>
+                </div>
+
+                <div class="menu-category">
+                    <h3 class="category-title">Primi Piatti</h3>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">Pasta all'Amatriciana</div>
+                            <div class="item-description">Spaghetti con guanciale, pomodoro e pecorino Romano</div>
+                        </div>
+                        <div class="item-price">€12,00</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">Risotto ai Funghi Porcini</div>
+                            <div class="item-description">Carnaroli mantecato con porcini freschi e Parmigiano</div>
+                        </div>
+                        <div class="item-price">€14,00</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">Lasagne della Nonna</div>
+                            <div class="item-description">Con ragù di carne, besciamella e mozzarella di bufala</div>
+                        </div>
+                        <div class="item-price">€13,00</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">Cacio e Pepe</div>
+                            <div class="item-description">Spaghetti con pecorino Romano e pepe nero macinato al momento</div>
+                        </div>
+                        <div class="item-price">€10,00</div>
+                    </div>
+                </div>
+
+                <div class="menu-category">
+                    <h3 class="category-title">Secondi Piatti</h3>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">Saltimbocca alla Romana</div>
+                            <div class="item-description">Scaloppine di vitello con prosciutto e salvia</div>
+                        </div>
+                        <div class="item-price">€18,00</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">Branzino in Crosta di Sale</div>
+                            <div class="item-description">Pesce fresco del giorno cotto in crosta con erbe aromatiche</div>
+                        </div>
+                        <div class="item-price">€22,00</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">Osso Buco alla Milanese</div>
+                            <div class="item-description">Con risotto allo zafferano e gremolada</div>
+                        </div>
+                        <div class="item-price">€20,00</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">Pollo alla Cacciatora</div>
+                            <div class="item-description">Con peperoni, pomodoro e olive taggiasche</div>
+                        </div>
+                        <div class="item-price">€16,00</div>
+                    </div>
+                </div>
+
+                <div class="menu-category">
+                    <h3 class="category-title">Dolci</h3>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">Tiramisù della Casa</div>
+                            <div class="item-description">Preparato secondo la ricetta tradizionale con mascarpone</div>
+                        </div>
+                        <div class="item-price">€6,00</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">Cannoli Siciliani</div>
+                            <div class="item-description">Con ricotta fresca e gocce di cioccolato</div>
+                        </div>
+                        <div class="item-price">€7,00</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">Panna Cotta ai Frutti di Bosco</div>
+                            <div class="item-description">Con coulis di frutti rossi e menta fresca</div>
+                        </div>
+                        <div class="item-price">€5,50</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>La Cantina dello Zio</h3>
+                <p>Trattoria familiare nel centro storico</p>
+                <p>Cucina italiana tradizionale</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contatti</h3>
+                <p>📍 [INSERIRE INDIRIZZO]</p>
+                <p>📞 [INSERIRE TELEFONO]</p>
+                <p>✉️ [INSERIRE EMAIL]</p>
+            </div>
+            <div class="footer-section">
+                <h3>Orari</h3>
+                <p>[INSERIRE ORARI]</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 La Cantina dello Zio. Tutti i diritti riservati.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Menu toggle mobile
+        const menuToggle = document.getElementById('menu-toggle');
+        const nav = document.getElementById('nav');
+
+        menuToggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+
+        // Intersection Observer per animazioni
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Osserva le categorie del menu
+        document.querySelectorAll('.menu-category').forEach(category => {
+            observer.observe(category);
+        });
+
+        // Smooth scroll per i link di navigazione
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Chiudi menu mobile quando si clicca su un link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
